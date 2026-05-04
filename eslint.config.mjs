@@ -25,7 +25,6 @@ export default [
         ...globals.node,
         ...globals.jest,
         __VITE_ENV__: 'readonly',
-        __IS_BROWSER__: 'readonly',
       },
 
       ecmaVersion: 'latest',
