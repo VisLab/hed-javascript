@@ -11,6 +11,7 @@ export {
   buildBidsSchemas,
   BidsFileAccessor,
   BidsDirectoryAccessor,
+  BidsWebAccessor,
 } from './src/bids'
 
 export { IssueError, Issue } from './src/issues/issues'
