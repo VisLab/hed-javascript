@@ -180,6 +180,33 @@ export class BidsDirectoryAccessor {
   getFileContent(relativePath: string): Promise<string | null>
 }
 
+/**
+ * BIDS file accessor for browser environments.
+ *
+ * Reads dataset files from browser `File` objects provided via a
+ * `<input webkitdirectory>` or drag-and-drop upload.
+ * Schema loading is performed via remote HTTPS fetching (no local file system access).
+ */
+export class BidsWebAccessor extends BidsFileAccessor {
+  /** Map of relative file paths to browser File objects */
+  fileMap: Map<string, File>
+
+  /** Organized paths */
+  organizedPaths: Map<string, Map<string, string[]>>
+
+  /**
+   * Factory method to create a BidsWebAccessor from a browser FileList.
+   * @param fileInput Files from a `<input webkitdirectory>` or drag-and-drop upload.
+   */
+  static create(fileInput: FileList | File[]): Promise<BidsWebAccessor>
+
+  /** Constructor for BidsWebAccessor */
+  constructor(datasetRootDirectory: string, fileMap: Map<string, File>)
+
+  /** Read a file's content via the browser File API */
+  getFileContent(relativePath: string): Promise<string | null>
+}
+
 export function buildBidsSchemas(datasetDescription: BidsJsonFile): Promise<Schemas | null>
 
 // Issues exports

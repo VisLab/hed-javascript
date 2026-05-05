@@ -7,6 +7,7 @@ import {
   BidsHedIssue,
   BidsFileAccessor,
   BidsDirectoryAccessor,
+  BidsWebAccessor,
   buildBidsSchemas,
 
   // Issues
@@ -129,6 +130,12 @@ async function testBids(schemas: Schemas) {
   const directoryAccessor = await BidsDirectoryAccessor.create(fakePath)
   console.log(directoryAccessor.fileMap, directoryAccessor.organizedPaths)
   directoryAccessor.getFileContent('file.txt')
+
+  // BidsWebAccessor
+  const fakeFileList: File[] = []
+  const webAccessor = await BidsWebAccessor.create(fakeFileList)
+  console.log(webAccessor.fileMap, webAccessor.organizedPaths)
+  webAccessor.getFileContent('file.txt')
 
   // buildBidsSchemas
   await buildBidsSchemas(bidsJsonFile)
