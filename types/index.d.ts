@@ -642,6 +642,15 @@ export class Schemas {
   get baseSchema(): Schema
 }
 
+// BIDS utilities
+/**
+ * Parse a TSV file contents into a column map.
+ *
+ * @param contents The raw text of a TSV file.
+ * @returns A Map from column name to array of cell values.
+ */
+export function parseTSV(contents: string): Map<string, string[]>
+
 // Schema exports
 export function getLocalSchemaVersions(): string[]
 
