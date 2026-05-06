@@ -115,14 +115,14 @@ do not remove it or those imports will fail in tests.
 
 CI runs on every push/PR to `main`. Replicate these locally before opening a PR:
 
-| Workflow              | Command                                             | Notes                                              |
-| --------------------- | --------------------------------------------------- | -------------------------------------------------- |
-| `tests.yml`           | `npm ci ; npm test`                                 | Runs `tests/` suite on Node 22, lts/\*, latest     |
-| `tests.yml`           | `npm ci ; npm run testSpecs`                        | Runs `spec_tests/` suite                           |
-| `test-types.yml`      | `npm ci ; npm run build ; npm pack` then type-check | **Build required before type check**               |
-| `codeql.yml`          | automatic                                           | CodeQL security scan (JavaScript)                  |
-| `codespell.yaml`      | automatic                                           | Spell check source files                           |
-| `links.yml`           | automatic                                           | Lychee link checker (configured via `lychee.toml`) |
+| Workflow         | Command                                             | Notes                                              |
+| ---------------- | --------------------------------------------------- | -------------------------------------------------- |
+| `tests.yml`      | `npm ci ; npm test`                                 | Runs `tests/` suite on Node 22, lts/\*, latest     |
+| `tests.yml`      | `npm ci ; npm run testSpecs`                        | Runs `spec_tests/` suite                           |
+| `test-types.yml` | `npm ci ; npm run build ; npm pack` then type-check | **Build required before type check**               |
+| `codeql.yml`     | automatic                                           | CodeQL security scan (JavaScript)                  |
+| `codespell.yaml` | automatic                                           | Spell check source files                           |
+| `links.yml`      | automatic                                           | Lychee link checker (configured via `lychee.toml`) |
 
 **Type-check locally (without packing):**
 
